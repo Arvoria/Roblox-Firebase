@@ -4,12 +4,6 @@ local RobloxFirebase = { }
 RobloxFirebase.DefaultScope = ""
 RobloxFirebase.AuthenticationToken = ""
 RobloxFirebase.__index = RobloxFirebase
-setmetatable(RobloxFirebase, RobloxFirebase)
-
-function RobloxFirebase.__call(self, dbUrl, authToken)
-	self.DefaultScope = dbUrl
-	self.AuthenticationToken = authToken
-end
 
 function RobloxFirebase:GetFirebase(name, scope)
 	assert(self.AuthenticationToken~=nil, "AuthenticationToken expected, got nil")
@@ -127,4 +121,9 @@ function RobloxFirebase:GetFirebase(name, scope)
 end
 
 
-return RobloxFirebase
+return function(dbUrl, authToken)
+	local self = setmetatable({}, RobloxFirebase)
+	self.DefaultScope = dbUrl
+	self.AuthenticationToken = authToken
+	return self
+end
