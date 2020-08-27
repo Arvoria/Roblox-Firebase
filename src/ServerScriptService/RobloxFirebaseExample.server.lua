@@ -8,6 +8,7 @@ local DATABASE_CREDENTIALS = DataStoreService:GetDataStore("DATABASE_CREDENTIALS
 local DB_URL, DB_AUTH = DATABASE_CREDENTIALS:GetAsync("URL"), DATABASE_CREDENTIALS:GetAsync("AUTH")
 
 local RobloxFirebase = require(ServerScriptService["Roblox-Firebase"])(DB_URL, DB_AUTH)
+--> local RobloxFirebase = require(5618676786)(DB_URL, DB_AUTH) --> Is an alternative method of requiring the module.
 
 local Database = RobloxFirebase:GetFirebase("") --> Empty name allows access to the full scope of the database unless otherwise specified in DB_URL
 --> It is recommended that your DB_URL is the start point of the database so that you can do this.
@@ -15,7 +16,7 @@ local PlayerDataFirebase = RobloxFirebase:GetFirebase("PlayerData")
 
 local PlayerData = {
 	["Level"] = 1,
-	["Gold"] = 100,
+	["Gold"] = 100,	
 	["Stats"] = {
 		["Speech"] = 10,
 		["Mining"] = 1
