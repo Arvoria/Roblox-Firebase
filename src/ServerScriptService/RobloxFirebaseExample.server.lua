@@ -11,7 +11,7 @@ local RobloxFirebase = require(ServerScriptService["Roblox-Firebase"])(DB_URL, D
 
 local Database = RobloxFirebase:GetFirebase("") --> Empty name allows access to the full scope of the database unless otherwise specified in DB_URL
 --> It is recommended that your DB_URL is the start point of the database so that you can do this.
-local PlayerDataFirebase = Database:GetFirebase("PlayerData")
+local PlayerDataFirebase = RobloxFirebase:GetFirebase("PlayerData")
 
 local PlayerData = {
 	["Level"] = 1,
