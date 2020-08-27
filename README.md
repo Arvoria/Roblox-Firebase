@@ -18,6 +18,7 @@ I also feel as though this much better emulates ROBLOX's DataStoreService and is
 
 ## Links 
 ROBLOX DevForum Post: 
+ROBLOX Asset: https://www.roblox.com/library/5618676786/Roblox-Firebase (To be used in require(assetId) calls)
 
 ## Contact
 You can contact me on Discord @Shane#3756 for any queries you may have or if any issues arise. There may be a few edge cases I have missed and/or either handled poorly or not at all.
