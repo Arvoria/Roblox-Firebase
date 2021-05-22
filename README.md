@@ -1,4 +1,4 @@
-# ROBLOX-Firebase 1.0.0
+# ROBLOX-Firebase 1.0.1
 ROBLOX-Firebase is a Wrapper module for Firebase's Real-time Database Service utilising its RESTful API. This *only* supports the Real-time Database service, it does not support the Cloud Firestore service at this current time, I may or may not develop a wrapper for the Cloud Firestore service in the future.
 
 While a Firebase wrapper for its Real-time Database already exists I feel as though it did not achieve its full potential without utilising the Batch Update endpoint, it also didn't use ROBLOX's HttpService:RequestAsync(requestOptions) method nor did it use "PATCH" requests for UpdateAsync which, in my opinion was dangerous especially given it defaults to a PUT request.
@@ -17,7 +17,7 @@ I also feel as though this much better emulates ROBLOX's DataStoreService and is
 - ROBLOX-Firebase utilises one method internally to modify the Firebase - :SetAsync() - and the other methods are just for your convenience to somewhat automate the process of other actions for you, it also helps in emulating how DataStoreService works.
 
 ## Links 
-ROBLOX DevForum Post: 
+ROBLOX DevForum Post: https://devforum.roblox.com/t/roblox-firebase-a-firebase-wrapper-for-roblox/747700
 
 ROBLOX Asset: https://www.roblox.com/library/5618676786/Roblox-Firebase (To be used in require(assetId) calls)
 
