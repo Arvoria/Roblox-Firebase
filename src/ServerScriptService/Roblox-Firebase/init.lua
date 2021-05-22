@@ -75,23 +75,24 @@ function RobloxFirebase:GetFirebase(name, scope)
 		
 		local attempts = 0
 		local responseInfo
-		
-		local success, err = pcall(function()
-			attempts += 1
-			local response = HttpService:RequestAsync(request)
 
-			if response == nil or not response.Success then
-				repeat
-					print("Retrying GetAsync request. Attempt " .. tostring(attempts+1) .."/3")
-					attempts += 1
-					response = HttpService:RequestAsync(request)
-				until attempts >= 3 or (response~=nil and response.Succes~=false)
-			else
-				responseInfo = response
+		repeat
+			attempts += 1
+			local success, error = pcall(function()
+				responseInfo = HttpService:RequestAsync(request)
+			end)
+			if not success then
+				print("Roblox-Firebase GetAsync failed: " .. tostring(error))
+				wait(3)
 			end
-		end)
-		
-		return HttpService:JSONDecode(responseInfo.Body) or nil
+		until attempts>=3 or (responseInfo~=nil and responseInfo.Success~=false)
+
+		if responseInfo == nil then
+			print("Roblox-Firebase GetAsync failed to fetch data")
+			return nil
+		end
+
+		return HttpService:JSONDecode(responseInfo.Body)
 	end
 
 	--[[ SetAsync

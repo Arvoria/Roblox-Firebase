@@ -61,3 +61,40 @@ game.Players.PlayerRemoving:Connect(function(player)
 	end) --> You can drop the optional snapshot paramater if not needed/used.
 	print("Updated.")
 end)
+
+--[[
+	BatchUpdateAsync Example:
+
+	Lets take our previous set of data and modify it slightly:
+
+	local PlayerData = {
+		["Level"] = 4,
+		["Gold"] = 12345,
+		["Stats"] = {
+			["Speech"] = 15,
+			["Mining"] = 25
+		}
+	}
+
+
+	Now lets set some callback methods:
+
+	local Callbacks = {
+		Level = function(oldData)
+		end,
+
+		Gold = function(oldData)
+		end,
+
+		Stats = function(oldData)
+		end,
+	}
+
+	You COULD update each key individually writing each callback method, or...
+	you could call BatchUpdateAsync("PlayerData", PlayerData, Callbacks)
+
+	The callback function is exactly the same as one you would write for either:
+		Firebase:UpdateAsync()
+	or
+		DataStore:UpdateAsync()
+]]
